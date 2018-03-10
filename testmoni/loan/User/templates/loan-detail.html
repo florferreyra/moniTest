@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ block.super }}
+{% endblock styles %}
+
+{% block scripts %}
+{{ block.super }}
+{% endblock scripts %}
+
+{% block content %}
+
+<div class="container">
+    <p class="title1">Detalle de Solicitud</p>
+    <!--Card-->
+    <div class="card p-2">
+        <!--Card content-->
+        <div class="card-body">
+            <!--Text-->
+            <p class="card-title">Nombre:</p>
+            <p class="Poitext"> {{ loan.first_name }}</p>
+
+            <p class="card-title">Apellido:</p>
+            <p class="Poitext"> {{ loan.last_name }}</p>
+
+            <p class="card-title">DNI:</p>
+            <p class="Poitext"> {{ loan.document_number }}</p>
+
+            <p class="card-title">Email:</p>
+            <p class="Poitext"> {{ loan.email }}</p>
+
+            <p class="card-title">Género:</p>
+            <p class="Poitext"> {{ loan.get_gender_display }}</p>
+
+            <p class="card-title">Monto:</p>
+            <p class="Poitext"> $ {{ loan.amount }}</p>
+
+            <a href="{% url 'loan-list' %}" class="btn btn-default waves-effect waves-light">Atrás</a>
+        </div>
+
+    </div>
+</div>
+<!--/.Card-->
+
+{% endblock content %}

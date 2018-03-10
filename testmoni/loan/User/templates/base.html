@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prestamos</title>
+    {% block styles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Poiret+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'content/css/mdb.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'content/css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    {% endblock styles %}
+</head>
+<body>
+{% block content %}
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'content/js/jquery-3.2.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'content/js/mdb.min.js' %}"></script>
+{% endblock scripts %}
+</body>
+</html>

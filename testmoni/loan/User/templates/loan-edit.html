@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ block.super }}
+{% endblock styles %}
+
+{% block scripts %}
+  {{ block.super }}
+{% endblock scripts %}
+
+{% block content %}
+
+<div class="container">
+  <div class="card p-2">
+    <div class="card-header blue-background text center-text">
+      <p class="title"> Detalles </p>
+    </div>
+    <div class="card-body Poitext">
+      <form method="POST" enctype="multipart/form-data" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+        <a href="{% url 'loan-list' %}" class="btn btn-default waves-effect waves-light">Atrás</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

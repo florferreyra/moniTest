@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ block.super }}
+{% endblock styles %}
+
+{% block scripts %}
+{{ block.super }}
+{% endblock scripts %}
+
+{% block content %}
+<div class="container loan Poitext">
+    <div class="card  ml-0 p1 c1">
+        <div class="col-md-12 margen-bottom animated fadeIn">
+            <p class="text-danger errors">
+                {% if form.form.error %}
+                Ocurrió un error en su solicitud.
+                {% endif %}
+            </p>
+        </div>
+        <p class="center-text title1">Solicitud de Préstamos</p>
+        {% if form.initial %}
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.form }}
+            <br></br>
+            <button type="submit" class="btn btn-default">Solicitar</button>
+        </form>
+        {% else %}
+            {% ifequal form.form.approved True %}
+            <p class="center-text title1">Solicitud Aprobada</p>
+            {% else %}
+                <p class="center-text title1">Solicitud Rechazada</p>
+            {% endifequal%}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}
+
+

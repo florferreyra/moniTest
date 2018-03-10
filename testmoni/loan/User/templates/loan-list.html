@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+{% block styles %}
+{{ block.super }}
+{% endblock styles %}
+
+{% block scripts %}
+{{ block.super }}
+{% endblock scripts %}
+
+{% block content %}
+
+<div class="container">
+    <!--Panel-->
+    <div class="card p-2">
+        <div class="card-header blue-background text center-text">
+            <p class="title"> Solicitudes de Prestamos </p>
+        </div>
+        <div class="card-body">
+
+            <table class="table">
+                <tbody>
+                {% for loan in loan_list %}
+                <tr>
+                    <td>
+                        <p class="Poitext"> {{ loan.last_name }}, {{ loan.first_name }}
+                    </td>
+                    <td class="right-text">
+                        <a class="btn btn-default waves-effect waves-light p-2" href="{% url 'loan-remove' loan.id %}"
+                           role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        <a class="btn btn-default waves-effect waves-light p-2" href="{% url 'loan-edit' loan.id %}"
+                           role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <a class="btn btn-default waves-effect waves-light p-2" href="{% url 'loan-details' loan.id %}"
+                           role="button"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td><p class="Poitext"> No hay solicitudes aún. </p></td>
+                </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--/.Panel-->
+</div>
+{% endblock content %}
+
